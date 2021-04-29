@@ -80,6 +80,7 @@ public class QuartzAutoConfiguration {
         props.put("org.quartz.threadPool.threadCount", "10");
         props.put("org.quartz.threadPool.threadPriority", "5");
         props.put("org.quartz.threadPool.threadsInheritContextClassLoaderOfInitializingThread", "true");
+        schedulerFactoryBean.setSchedulerName(this.properties.getSchedulerName());
         schedulerFactoryBean.setQuartzProperties(props);
         if (!StringUtils.isEmpty(this.properties.getSchedulerName())) {
             schedulerFactoryBean.setBeanName(this.properties.getSchedulerName());
